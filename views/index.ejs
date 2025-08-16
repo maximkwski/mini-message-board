@@ -3,17 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Home</title>
   </head>
   <body>
     <h1>Mini Message Board</h1>
     <ul>
       <% messages.forEach( (message) => { %>
       <li>
-        user: <%= message.user %>; message: <%= message. text %>; added: <%=
-        message.added %>
+        user: <%= message.user %>; message: <%= message. text %>
+        <a href="/message/<%= message.id %>">Open</a>
       </li>
       <% }) %>
     </ul>
+    <a href="/new">New Message</a>
   </body>
 </html>
