@@ -3,12 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Message details</title>
+    <title>Message Details</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div id="message-details">
-      User: <%= message.user %> Message: <%= message.text %> Added: <%=
-      message.added %>
+    <div class="container">
+      <h1>Message Details</h1>
+
+      <div class="message-details">
+        <div class="detail-user">From: <%= message.user %></div>
+        <div class="detail-text"><%= message.text %></div>
+        <div class="detail-date">
+          Posted: <%= message.added.toLocaleDateString() %> at <%=
+          message.added.toLocaleTimeString() %>
+        </div>
+
+        <a href="/" class="back-btn">← Back to All Messages</a>
+      </div>
     </div>
   </body>
 </html>

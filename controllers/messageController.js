@@ -3,41 +3,46 @@ const messages = [
     id: 1,
     text: "Hi there!",
     user: "Amando",
-    added: new Date()
+    added: new Date(),
   },
   {
     id: 2,
     text: "Hello World!",
     user: "Charles",
-    added: new Date()
+    added: new Date(),
   },
-  { 
+  {
     id: 3,
     text: "Hola Amigos!",
     user: "Diego",
-    added: new Date()
-  }
+    added: new Date(),
+  },
 ];
 
 //@desc Get all messages
-//route GET /
+//@route GET /
 export const getMessages = (req, res, next) => {
-    res.render('index', { title: "Mini Messageboard", messages: messages })
-}
+  res.render("index", { title: "Mini Messageboard", messages: messages });
+};
 
-export const getNewMessageForm = (req, res) => {
-  res.render('form')
-}
+//@desc get new message form
+//@route GET /new
+export const getNewMessageForm = (req, res, next) => {
+  res.render("form");
+};
 
-export const createNewMessage = (req, res) => {
+//@desc create new message
+//@route POST /new
+export const createNewMessage = (req, res, next) => {
   const user = req.body.user;
   const message = req.body.message;
   const id = messages.length + 1;
-  messages.push({id: id, user: user, text: message, added: new Date()})
-  res.redirect("/")
-}
+  messages.push({ id: id, user: user, text: message, added: new Date() });
+  res.redirect("/");
+};
 
-
+//@desc get message details
+//@route GET /message/:id
 export const getMessageDetails = (req, res, next) => {
   const id = parseInt(req.params.id);
   const message = messages.find((message) => message.id === id);
@@ -48,7 +53,5 @@ export const getMessageDetails = (req, res, next) => {
     return next(error);
   }
 
-  res.render('message', { message: message });
-  
-}
-
+  res.render("message", { message: message });
+};

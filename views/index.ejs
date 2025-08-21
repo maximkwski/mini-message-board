@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Mini Message Board</h1>
-    <ul>
-      <% messages.forEach( (message) => { %>
-      <li>
-        user: <%= message.user %>; message: <%= message. text %>
-        <a href="/message/<%= message.id %>">Open</a>
-      </li>
-      <% }) %>
-    </ul>
-    <a href="/new">New Message</a>
+    <div class="container">
+      <h1>Mini Message Board</h1>
+      <ul class="messages-list">
+        <% messages.forEach( (message) => { %>
+        <li class="message-item">
+          <div class="message-content">
+            <div class="message-user"><%= message.user %></div>
+            <div class="message-text"><%= message.text %></div>
+          </div>
+          <a href="/message/<%= message.id %>" class="message-link">View</a>
+        </li>
+        <% }) %>
+      </ul>
+      <a href="/new" class="new-message-btn">✍️ New Message</a>
+    </div>
   </body>
 </html>
