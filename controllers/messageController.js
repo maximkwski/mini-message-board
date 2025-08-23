@@ -1,22 +1,16 @@
 const messages = [
   {
     id: 1,
-    text: "Hi there!",
-    user: "Amando",
+    text: "Hello World!",
+    user: "Diego",
     added: new Date(),
   },
   {
     id: 2,
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-  {
-    id: 3,
     text: "Hola Amigos!",
-    user: "Diego",
+    user: "Barbara",
     added: new Date(),
-  },
+  }
 ];
 
 //@desc Get all messages
